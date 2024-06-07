@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class PersonListComponent {
 
-  people: Person[];
+  people: Person[] = [];
   person: Person = { id: null, first_name: "", last_name: "", email: "" };
   isLoading: boolean = false;
   feed = new Feedback("", "");
@@ -68,7 +68,7 @@ export class PersonListComponent {
   }*/
 
   ngOnInit() {
-    this.refreshPeople();
+    //this.refreshPeople();
     this.feed = { feedbackType: "", feedbackMsg: "" };
   }
 
@@ -90,6 +90,7 @@ export class PersonListComponent {
             this.refreshPeople();
           })
       }
+      //this.people=[]
       //this.loadAllPerson();
     }
 
