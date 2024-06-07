@@ -68,6 +68,7 @@ export class PersonListComponent {
   }*/
 
   ngOnInit() {
+
     //this.refreshPeople();
     this.feed = { feedbackType: "", feedbackMsg: "" };
   }
