@@ -81,14 +81,15 @@ export class PersonListComponent {
       })
   }
 
-  deletePerson(id: number) {
+  deletePerson(person, index) {
 
     if (this.isLoading == true) {
       if (window.confirm("Sicuro di elimare l'utente")) {
-        this.personService.deletePerson(id)
-          .subscribe(data => {
-            console.log(data);
-            this.refreshPeople();
+        this.personService.deletePerson(person.id).subscribe(data => {
+            /*console.log(data);
+            this.refreshPeople();*/
+              this.people.splice(index, 1);
+
           })
       }
       //this.people=[]
@@ -96,5 +97,4 @@ export class PersonListComponent {
     }
 
   }
-
 }

@@ -29,21 +29,21 @@
 
     </tr>
   </thead>
-  <tbody *ngFir="let person of people; let i = index">
-    <tr *ngFor="let repo of people">
+  <tbody>
+    <tr *ngFor="let person of people; let i = index">
 
-      <td>{{repo.id}}</td>
-      <td><a [routerLink]="['/person-edit/',repo.id]">{{repo.first_name}} </a> </td>
+      <td>{{person.id}}</td>
+      <td><a [routerLink]="['/person-edit/',person.id]">{{person.first_name}} </a> </td>
 
-      <td><a [routerLink]="['/person-edit/',repo.id]">{{repo.last_name}} </a> </td>
+      <td><a [routerLink]="['/person-edit/',person.id]">{{person.last_name}} </a> </td>
 
-      <td>{{repo.email}}</td>
+      <td>{{person.email}}</td>
       <td class="text-center">
-        <button type="submit" routerLinkActive="active" routerLink="/person-edit/{{repo.id}}" style="background-color:rgb(22, 218, 22)">
+        <button type="submit" routerLinkActive="active" routerLink="/person-edit/{{person.id}}" style="background-color:rgb(22, 218, 22)">
           <img src="assets\img\Edit.png" Style= "width:30px;height:30px"  />
         </button>
 
-        <button type="submit" (click)="deletePerson(repo.id)" style="background-color:red">
+        <button type="submit" (click)="deletePerson(person, i)" style="background-color:red">
           <img src="assets\img\delete.png" Style= "width:30px;height:30px"  />
         </button>
       </td>
