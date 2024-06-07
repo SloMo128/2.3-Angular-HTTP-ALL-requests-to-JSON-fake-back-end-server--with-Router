@@ -1,0 +1,101 @@
+<!-- check for database, network or other errors -->
+<div *ngIf="!isLoading && feed.feedbackType === 'error'" class="text-center">
+  <div class="alert alert-success" [ngClass]="feed.feedbackType === 'success'
+          ? 'alert-success'
+          : 'alert-danger'
+      " role="alert" style="height: 50px" [ngStyle]="!feed.feedbackMsg">
+    {{
+    feed.feedbackType === "error"
+    ? feed.feedbackMsg + " Please try again later."
+    : ""
+    }}
+  </div>
+</div>
+
+<div *ngIf="feed.feedbackType"
+  [ngClass]="{'alert-success': feed.feedbackType === 'success'}"
+  class="alert" class="text-center">
+  {{ feed.feedbackMsg }}
+</div>
+
+<div class="row justify-content-center" *ngIf="isLoading">
+  <div class="col-md-4 register-person">
+    <!-- form card register -->
+    <div class="card card-outline-secondary">
+      <div class="card-header">
+        <h3 class="mb-0">Edit Person</h3>
+      </div>
+
+      <div class="card-body" style="text-align:center;">
+        <form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div>
+            <p>
+              <label for="first_name">First Name </label>
+              <input type="text" id="first_name" name="first_name" class="form-control" formControlName="first_name"
+                [ngClass]="{'is-invalid': first_name.invalid && first_name.dirty,
+                                        'is-valid': first_name.valid && first_name.dirty}">
+            </p>
+            <div *ngIf="!first_name.valid && (first_name.dirty || first_name.touched)" class="error">
+              <div *ngIf="first_name.errors.required">
+                First Name is required</div>
+              <div *ngIf="first_name.errors.minlength && first_name.touched">
+                First Name Minimum Length is {{ firstname.errors.minlength.requiredLength }}
+              </div>
+              <div *ngIf="first_name.errors.maxlength && first_name.touched">
+                First Name Maximum Length is {{ firstname.errors.maxlength.requiredLength }}
+              </div>
+              <div *ngIf="first_name.errors.pattern">
+                Only characters - not spaces - are allowed.
+              </div>
+            </div>
+
+          </div>
+
+          <div>
+            <p>
+              <label for="last_name">Last Name </label>
+              <input type="text" id="last_name" name="last_name" class="form-control" formControlName="last_name"
+                [ngClass]="{'is-invalid': last_name.invalid && last_name.dirty,
+                                        'is-valid': last_name.valid && last_name.dirty}">
+            </p>
+            <div *ngIf="!last_name.valid && (last_name.dirty || last_name.touched)" class="error">
+              <p *ngIf="last_name.errors.required">
+                Last Name is required
+              </p>
+              <p *ngIf="last_name.errors.minlength && last_name.touched">
+                Last Name Minimum Length is {{ lastname.errors.minlength.requiredLength }}
+              </p>
+              <p *ngIf="last_name.errors.maxlength && last_name.touched">
+                Last Name Maximum Length is {{ lastname.errors.maxlength.requiredLength }}
+              </p>
+              <p *ngIf="last_name.errors.pattern">
+                Only characters - not spaces - are allowed.
+              </p>
+            </div>
+
+          </div>
+
+          <div>
+            <p>
+              <label for="email">Email </label>
+              <input type="text" id="email" name="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.dirty,
+                                        'is-valid': email.valid && email.dirty}">
+            </p>
+
+            <div *ngIf="!email.valid && (email.dirty || email.touched)" class="errors">
+              <p *ngIf="email.errors.pattern">
+                Invalid email format
+              </p>
+              <p *ngIf="email.errors.required">
+                Email is required
+              </p>
+            </div>
+
+          </div>
+          <button class="btn btn-success" type="submit" [disabled]="!userForm.valid">Update</button><br><br>
+          <a class="btn btn-success" [routerLink]="['/person-list']">Back to people list</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

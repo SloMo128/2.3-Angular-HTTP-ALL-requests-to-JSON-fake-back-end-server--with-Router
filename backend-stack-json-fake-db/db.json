@@ -1,0 +1,52 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "first_name": "Andrea",
+      "last_name": "Sperelli",
+      "email": "andrea.sperelli@tzzhis.email.com"
+    },
+    {
+      "id": 2,
+      "first_name": "GiorgioMio",
+      "last_name": "Aurispab",
+      "email": "giorgio.aurispa@this.email.com"
+    },
+    {
+      "id": 3,
+      "first_name": "Jack",
+      "last_name": "Frusciante",
+      "email": "jack.frusciante@this.email.com"
+    },
+    {
+      "first_name": "Mika",
+      "last_name": "Tela Dogratis",
+      "email": "lado.gratis@this.email.com",
+      "id": 5
+    },
+    {
+      "first_name": "Ottone",
+      "last_name": "Erminio",
+      "email": "ermi.nio@otto.ne",
+      "id": 6
+    },
+    {
+      "first_name": "Francesca (Checca)",
+      "last_name": "Catone",
+      "email": "checca.cato.ne@email.it",
+      "id": 7
+    },
+    {
+      "first_name": "Luca",
+      "last_name": "Catone",
+      "email": "luca.catone@email.it",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "first_name": "Pina",
+      "last_name": "Scalop",
+      "email": "pina.scalop@email.it"
+    }
+  ]
+}
